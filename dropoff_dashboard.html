@@ -115,12 +115,16 @@
     flex-shrink:0;
   }
   .brand-text{ font-family:"Manrope"; font-weight:700; font-size:16px; letter-spacing:-0.01em; }
-  .nav{ display:flex; gap: 4px; flex-wrap:wrap; }
-  .nav a{
-    font-size:13px; font-weight:600; color: var(--text-secondary); text-decoration:none;
-    padding:6px 10px; border-radius:7px;
+
+  .tabs{ display:flex; gap:4px; padding:3px; background: var(--surface-2); border-radius:10px; }
+  .tab-btn{
+    font-family:"Manrope"; font-size:13px; font-weight:700; color: var(--text-secondary);
+    background: transparent; border:none; cursor:pointer; padding:7px 16px; border-radius:8px;
+    transition: background .12s ease, color .12s ease;
   }
-  .nav a:hover{ background: var(--surface-2); color: var(--text); }
+  .tab-btn:hover{ color: var(--text); }
+  .tab-btn.active{ background: var(--surface); color: var(--accent-strong); box-shadow: var(--shadow); }
+  .tab-panel[hidden]{ display:none; }
 
   header.hero{ padding: 40px 0 8px; }
   .eyebrow{
@@ -255,13 +259,9 @@
       <div class="brand-mark">DR</div>
       <div class="brand-text">Drop-off Recovery Desk</div>
     </div>
-    <nav class="nav">
-      <a href="#funnel">Funnel</a>
-      <a href="#outcomes">Outcomes</a>
-      <a href="#reasons">Top reasons</a>
-      <a href="#decision">Decision days</a>
-      <a href="#breakdown">Full breakdown</a>
-      <a href="#voc">Voice of customer</a>
+    <nav class="tabs" role="tablist">
+      <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-tab="summary">Executive Summary</button>
+      <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="voc">VOC</button>
     </nav>
   </div>
 </div>
@@ -278,6 +278,8 @@
       <span><span class="dot"></span>Auto-refreshed daily from the live sheet</span>
     </div>
   </header>
+
+  <div class="tab-panel" id="tab-summary">
 
   <section id="funnel">
     <div class="section-head">
@@ -733,6 +735,10 @@
       <div class="num" style="font-size:20px; font-weight:700;">4,953</div>
     </div>
   </section>
+
+  </div>
+
+  <div class="tab-panel" id="tab-voc" hidden>
 
   <section id="voc">
     <div class="section-head">
@@ -1555,9 +1561,29 @@
     
   </section>
 
+  </div>
+
   <footer>
     <p><strong>Methodology.</strong> Total Leads = COUNTUNIQUE of phone numbers; Unique Attempts = non-blank call-time entries; Connected = Connect Status starting "Connected"; Meaningful Connect = Connect Status exactly "Connected – spoke to customer"; Interested = Interest Bucket in either "Interested – Not Yet" state; Booked = booking flag = 1 on a connected call. Reason and outcome tables group each logged primary-reason code under its mapped outcome bucket (Wouldn't / Not Yet / Couldn't / Existing Wiom / Already Booked / Unknown), identical to the mapping used in the source sheet's DAILY SUMMARY tab. All text matching is case-insensitive, matching Google Sheets' COUNTIF/COUNTIFS behaviour — several fields (Connect Status, Interest Bucket) carry mixed-case duplicates in the raw data that are folded together here exactly as they are on the live sheet.</p>
     <p style="margin-top:10px;">Rebuilt automatically once a day from <strong>CALL SHEET – APP Drop offs</strong> in Wiom_Dropoff_Calling_Pack_03Sep2026. Numbers reflect the sheet as of the snapshot time above, not the exact moment you're viewing this page.</p>
   </footer>
 
 </div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.tab-btn').forEach(function (b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(function (p) {
+        p.hidden = true;
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      document.getElementById('tab-' + btn.dataset.tab).hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
