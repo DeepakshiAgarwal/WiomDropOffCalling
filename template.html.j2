@@ -224,6 +224,26 @@
   details[open] .chev{ transform: rotate(180deg); }
   .bg-body{ padding: 0 20px 18px; }
 
+  .voc-callout{
+    display:flex; gap:12px; align-items:flex-start; padding:14px 18px; margin-bottom:14px;
+    border:1px solid var(--border); border-radius:12px; background:var(--surface-2);
+    font-size:12.5px; color:var(--text-secondary);
+  }
+  .voc-callout b{ color:var(--text); }
+  .voc-takeaway{
+    font-size:13px; color:var(--text-secondary); background:var(--accent-soft); color:var(--accent-strong);
+    border-radius:8px; padding:10px 14px; margin-bottom:16px; font-weight:600;
+  }
+  .voc-cat + .voc-cat{ margin-top:16px; }
+  .voc-cat-head{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:6px; }
+  .voc-cat-name{ font-size:13px; font-weight:700; }
+  .voc-cat-stat{ font-size:12px; color:var(--text-muted); flex-shrink:0; }
+  .voc-samples{ list-style:none; margin:10px 0 0; padding:0; display:flex; flex-direction:column; gap:6px; }
+  .voc-samples li{
+    font-size:12.5px; color:var(--text-secondary); font-style:italic; line-height:1.5;
+    padding-left:14px; border-left:2px solid var(--border);
+  }
+
   footer{ margin-top:60px; padding-top:24px; border-top:1px solid var(--border); }
   footer p{ font-size:12.5px; color:var(--text-muted); max-width:820px; }
   footer strong{ color: var(--text-secondary); }
@@ -241,6 +261,7 @@
       <a href="#reasons">Top reasons</a>
       <a href="#decision">Decision days</a>
       <a href="#breakdown">Full breakdown</a>
+      <a href="#voc">Voice of customer</a>
     </nav>
   </div>
 </div>
@@ -481,6 +502,55 @@
       <div class="card-title" style="margin:0;">Grand total (outcome-tagged calls)</div>
       <div class="num" style="font-size:20px; font-weight:700;">{{ "{:,}".format(grand_total) }}</div>
     </div>
+  </section>
+
+  <section id="voc">
+    <div class="section-head">
+      <h2>Voice of the customer</h2>
+      <div class="section-note">What customers actually said, in their own words, grouped into themes for the top reasons.</div>
+    </div>
+
+    <div class="voc-callout">
+      <span>💬</span>
+      <span><b>How this is different from the rest of this page:</b> every other section here is a deterministic count straight off the sheet. This section reads the free-text comment agents leave per call ("What EXACTLY are they waiting for") and sorts it into themes using keyword rules — the same theme taxonomy the source sheet's own VOC tab uses, re-applied to current data. It's a best-effort classification, not an exact formula, so treat these shares as directional.</span>
+    </div>
+
+    {% for g in voc_groups %}
+    <details class="breakdown-group">
+      <summary class="bg-summary">
+        <div class="bg-left">
+          <div class="bg-swatch" style="background:var(--accent)"></div>
+          <div>
+            <div class="bg-title">{{ g.title }}</div>
+            <div class="bg-count">{{ "{:,}".format(g.total) }} comments read · top theme: {{ g.categories[0].name }}</div>
+          </div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-share num">{{ g.categories[0].pct }}%</div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </summary>
+      <div class="bg-body">
+        <div class="voc-takeaway">{{ g.takeaway }}</div>
+        {% for c in g.categories %}
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">{{ c.name }}</span>
+            <span class="voc-cat-stat num">{{ "{:,}".format(c.count) }} · {{ c.pct }}%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:{{ c.pct }}%; background:var(--accent);"></div></div>
+          {% if c.samples %}
+          <ul class="voc-samples">
+            {% for s in c.samples %}
+            <li>"{{ s }}"</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </details>
+    {% endfor %}
   </section>
 
   <footer>

@@ -20,6 +20,8 @@ import openpyxl
 import pandas as pd
 from jinja2 import Template
 
+from voc_analysis import classify_voc
+
 warnings.filterwarnings("ignore")
 
 HERE = Path(__file__).parent
@@ -249,6 +251,7 @@ def build(xlsx_path, output_path):
     intent_categories = compute_intent(df)
     decision_buckets = compute_decision_days(df)
     top5, top5_sum, breakdown_groups, grand_total = compute_reasons(wb, f["meaningful_connect"])
+    voc_groups = classify_voc(df, col)
 
     ctx = dict(
         source_name=xlsx_path.stem,
@@ -262,6 +265,7 @@ def build(xlsx_path, output_path):
         top5_sum=top5_sum,
         breakdown_groups=breakdown_groups,
         grand_total=grand_total,
+        voc_groups=voc_groups,
     )
 
     template = Template(TEMPLATE_PATH.read_text(encoding="utf-8"))

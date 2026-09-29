@@ -224,6 +224,26 @@
   details[open] .chev{ transform: rotate(180deg); }
   .bg-body{ padding: 0 20px 18px; }
 
+  .voc-callout{
+    display:flex; gap:12px; align-items:flex-start; padding:14px 18px; margin-bottom:14px;
+    border:1px solid var(--border); border-radius:12px; background:var(--surface-2);
+    font-size:12.5px; color:var(--text-secondary);
+  }
+  .voc-callout b{ color:var(--text); }
+  .voc-takeaway{
+    font-size:13px; color:var(--text-secondary); background:var(--accent-soft); color:var(--accent-strong);
+    border-radius:8px; padding:10px 14px; margin-bottom:16px; font-weight:600;
+  }
+  .voc-cat + .voc-cat{ margin-top:16px; }
+  .voc-cat-head{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:6px; }
+  .voc-cat-name{ font-size:13px; font-weight:700; }
+  .voc-cat-stat{ font-size:12px; color:var(--text-muted); flex-shrink:0; }
+  .voc-samples{ list-style:none; margin:10px 0 0; padding:0; display:flex; flex-direction:column; gap:6px; }
+  .voc-samples li{
+    font-size:12.5px; color:var(--text-secondary); font-style:italic; line-height:1.5;
+    padding-left:14px; border-left:2px solid var(--border);
+  }
+
   footer{ margin-top:60px; padding-top:24px; border-top:1px solid var(--border); }
   footer p{ font-size:12.5px; color:var(--text-muted); max-width:820px; }
   footer strong{ color: var(--text-secondary); }
@@ -241,6 +261,7 @@
       <a href="#reasons">Top reasons</a>
       <a href="#decision">Decision days</a>
       <a href="#breakdown">Full breakdown</a>
+      <a href="#voc">Voice of customer</a>
     </nav>
   </div>
 </div>
@@ -711,6 +732,827 @@
       <div class="card-title" style="margin:0;">Grand total (outcome-tagged calls)</div>
       <div class="num" style="font-size:20px; font-weight:700;">4,953</div>
     </div>
+  </section>
+
+  <section id="voc">
+    <div class="section-head">
+      <h2>Voice of the customer</h2>
+      <div class="section-note">What customers actually said, in their own words, grouped into themes for the top reasons.</div>
+    </div>
+
+    <div class="voc-callout">
+      <span>💬</span>
+      <span><b>How this is different from the rest of this page:</b> every other section here is a deterministic count straight off the sheet. This section reads the free-text comment agents leave per call ("What EXACTLY are they waiting for") and sorts it into themes using keyword rules — the same theme taxonomy the source sheet's own VOC tab uses, re-applied to current data. It's a best-effort classification, not an exact formula, so treat these shares as directional.</span>
+    </div>
+
+    
+    <details class="breakdown-group">
+      <summary class="bg-summary">
+        <div class="bg-left">
+          <div class="bg-swatch" style="background:var(--accent)"></div>
+          <div>
+            <div class="bg-title">Non-serviceable area</div>
+            <div class="bg-count">853 comments read · top theme: Area / location not serviceable</div>
+          </div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-share num">90.7%</div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </summary>
+      <div class="bg-body">
+        <div class="voc-takeaway">"Area / location not serviceable" is the single largest theme, at 90.7% of 853 comments read for this reason.</div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Area / location not serviceable</span>
+            <span class="voc-cat-stat num">774 · 90.7%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:90.7%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx bol raha tha ki wiom ka net hi nahi hai mere area mai"</li>
+            
+            <li>"CX ke area non-serviceable hai, isliye woh booking nahi kar paya."</li>
+            
+            <li>"CX ko booking karni thi, lekin jis location par service lagwana tha, wahan service available nahi thi. Aur CX ne beech mein hi call…"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Non-serviceable shown in app/phone</span>
+            <span class="voc-cat-stat num">79 · 9.3%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:9.3%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx booking ke liye ready hai but wiom app per serviceblity show nahi ho raha tha"</li>
+            
+            <li>"cx ne kaha unke phone mai non- serviceable show ho raha hai"</li>
+            
+            <li>"cx says ki uske app me uske yha coverage show nhi ho rha h"</li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </details>
+    
+    <details class="breakdown-group">
+      <summary class="bg-summary">
+        <div class="bg-left">
+          <div class="bg-swatch" style="background:var(--accent)"></div>
+          <div>
+            <div class="bg-title">Confusion regarding booking process</div>
+            <div class="bg-count">831 comments read · top theme: Plan / recharge / charges information</div>
+          </div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-share num">38.9%</div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </summary>
+      <div class="bg-body">
+        <div class="voc-takeaway">"Plan / recharge / charges information" is the single largest theme, at 38.9% of 831 comments read for this reason.</div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Plan / recharge / charges information</span>
+            <span class="voc-cat-stat num">323 · 38.9%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:38.9%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx ko recharge amount and booking amoutn ki jankari chahiye cx say next week tak booking compelet kar lengi"</li>
+            
+            <li>"cx ko booking amout ko le kar jankari chahiye thi cx confuse hai"</li>
+            
+            <li>"Customer ko booking& recharge ki informatio share ki to customer ne call cut kr diya"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Booking intent - date/time committed</span>
+            <span class="voc-cat-stat num">213 · 25.6%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:25.6%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ko booking process nahi pata tha, then cx ko bat diya gaya hai. Ab CX booking ke liye ready hai aur 10 tarik ko booking kar lega"</li>
+            
+            <li>"CX ko booking process nahi pata tha, unhe guide kar diya hai. Ab CX tayaar hai aaj shaam tak booking karne ke liye."</li>
+            
+            <li>"CX ko booking process samajh nahi aa raha tha, toh usse guide kar diya. Aaj shaam tak booking kar lega."</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Other / unclear / decision pending</span>
+            <span class="voc-cat-stat num">165 · 19.9%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:19.9%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX bol raha tha ki woh kuch ghanton wala net use karta tha aur use laga ki app download karne se net ke liye payment nahi karna padega."</li>
+            
+            <li>"cx ne kaha ki mujhe use nahi krna hai owner ko chahiye tha but cx ne koi date commite nahi kiya hai , cut the call"</li>
+            
+            <li>"cx ne kaha mai khud se booking kr lunga but abhi nahi cx ne koi date nahi bata ya"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Booking process / guidance</span>
+            <span class="voc-cat-stat num">59 · 7.1%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:7.1%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ne booking check karne ke liye app download kiya tha. Booking regarding unka question tha, jiske liye unhe guide kar diya gaya hai. Woh…"</li>
+            
+            <li>"CX ko booking process samajh nahi aa raha tha, toh usse guide kar diya. Lekin abhi CX ne confirm nahi kiya hai ki kab booking karega."</li>
+            
+            <li>"CX ko booking process samajh nahi aaya tha , unhe guide kar diya gya hai. CX booking karn chata ha par kab karenge ye confirm nahi hai."</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Location / serviceability clarification</span>
+            <span class="voc-cat-stat num">35 · 4.2%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:4.2%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ko booking process samajh nahi aa raha tha, toh usse guide kar diya. Aaj shaam tak booking kar lega. Abhi CX apni location par nahi hai,…"</li>
+            
+            <li>"CX ko booking karni thi, lekin wo apni location par nahi tha aur booking process bhi nahi pata tha. Usse bataya gaya, aur wo aaj shaam tak…"</li>
+            
+            <li>"cx ko recharge ky baare me bta diya h 1,2,7,14,28,56 or 84 din ka recharge hota h or booking ky charges 23 ya 25 hota h or wiom app booking…"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Temporary constraint / callback</span>
+            <span class="voc-cat-stat num">24 · 2.9%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:2.9%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ko booking process samajh nahi aa raha tha, toh usse guide kar diya. Aaj shaam tak booking kar lega. Abhi CX busy hai, isliye shaam ko…"</li>
+            
+            <li>"CX ko booking samajh nahi aayi thi, isliye unhone booking nahi ki. Ab CX booking karne ke liye ready hai, lekin wo abhi out of station…"</li>
+            
+            <li>"CX is currently at the office location and wants the setup at home CX will book the connection in the evening after reaching home"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Booking already completed</span>
+            <span class="voc-cat-stat num">8 · 1.0%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:1.0%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"The customer faced an issue during the booking process, so I guided the customer and completed the booking over the call."</li>
+            
+            <li>"cx ko booking karne me issue aa rahe the cx ko on call guide kar diya hai cx ne booking kar liya hai"</li>
+            
+            <li>"cx ko booking karne me cunfusion thi cx ne booking kar liya hai"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Not interested / no requirement</span>
+            <span class="voc-cat-stat num">4 · 0.5%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:0.5%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx ko interest nahi hai, isliye wo booking nahi chahte."</li>
+            
+            <li>"CX wanted plan info but is not interested in installation"</li>
+            
+            <li>"CX ko plans mein kaafi confusion thi, unko kisi ne Wiom se related recharge galat bataye the, isliye wo interested nahi thi. Ab maine sahi…"</li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </details>
+    
+    <details class="breakdown-group">
+      <summary class="bg-summary">
+        <div class="bg-left">
+          <div class="bg-swatch" style="background:var(--accent)"></div>
+          <div>
+            <div class="bg-title">Purana connection chal raha hai</div>
+            <div class="bg-count">273 comments read · top theme: Other / unclear</div>
+          </div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-share num">41.8%</div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </summary>
+      <div class="bg-body">
+        <div class="voc-takeaway">"Other / unclear" is the single largest theme, at 41.8% of 273 comments read for this reason.</div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Other / unclear</span>
+            <span class="voc-cat-stat num">114 · 41.8%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:41.8%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx ka abhi purna connection chal raha hai 25 ko laga lenge"</li>
+            
+            <li>"cx ka purana connection laga hai isly booking nahi kiya aaj booking kar lunga"</li>
+            
+            <li>"cx ka abhi purana connection chal raha hai ek mahine bad karenge"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Existing competitor / other ISP active</span>
+            <span class="voc-cat-stat num">102 · 37.4%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:37.4%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX was just checking; already has another brand’s box."</li>
+            
+            <li>"CX was checking plans; already has another brand connection and isn’t interested currently."</li>
+            
+            <li>"CX is currently using Airtel and is not sure yet. CX said they will let us know later"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Will book later / undecided</span>
+            <span class="voc-cat-stat num">31 · 11.4%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:11.4%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx bol rhe hai abhi durhre comapy ka connectiong use kar rha hu aage sochunga"</li>
+            
+            <li>"cx ka purana connection chal raha hai month ke last me kar lenge"</li>
+            
+            <li>"CX ka purana connection chal raha hai, isliye next month booking karega"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Waiting for current recharge / plan to end</span>
+            <span class="voc-cat-stat num">11 · 4.0%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:4.0%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx bhi airtel net use kar raha hai uska recharge khtam hone ke baad wiom ka booking karegi"</li>
+            
+            <li>"cx abhi airtel use kar raha hai , recharge ke baad booking karega"</li>
+            
+            <li>"cx airtel use kar raha hai uska recharge khatm hone ke baad booking karenge"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Price / plan / feature concern</span>
+            <span class="voc-cat-stat num">8 · 2.9%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:2.9%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ko booking process aur plans ke baare mein jankari chahiye thi, maine unhe di. Ab unka purana connection chal raha hai, wo next month…"</li>
+            
+            <li>"CX wanted information about recharge plans. CX currently has an existing connection and will complete the booking next month."</li>
+            
+            <li>"CX enquired about Wiom offers, recharge & speed; will discuss with brother and confirm within 1–2 days."</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Not interested / just checking</span>
+            <span class="voc-cat-stat num">4 · 1.5%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:1.5%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX abhi purana connection use kar rahe hain. Woh pehle app check karenge, phir booking karenge."</li>
+            
+            <li>"CX bas check kar raha tha, wo already dusri company ka netbox use kar raha hai, CX ko Wiom ka netbox use nahi karna hai."</li>
+            
+            <li>"CX pehle se Airtel ka use kar rahe hain, unhe Wiom ka WiFi mein interest nahi hai."</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Booking / setup / process issue</span>
+            <span class="voc-cat-stat num">2 · 0.7%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:0.7%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ka pura connection chal raha hai, isliye unhone abhi tak decide nahi kiya. Agar future mein net setup lagwana ho, toh lagwa lenge."</li>
+            
+            <li>"CX ka pura connection chal raha hai, isliye wo booking nahi karna chahta"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Already a Wiom user / additional connection</span>
+            <span class="voc-cat-stat num">1 · 0.4%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:0.4%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"The customer is already using a Wiom connection and does not need a new one."</li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </details>
+    
+    <details class="breakdown-group">
+      <summary class="bg-summary">
+        <div class="bg-left">
+          <div class="bg-swatch" style="background:var(--accent)"></div>
+          <div>
+            <div class="bg-title">Just exploring, no immediate requirement</div>
+            <div class="bg-count">375 comments read · top theme: Other / unclear</div>
+          </div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-share num">55.7%</div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </summary>
+      <div class="bg-body">
+        <div class="voc-takeaway">"Other / unclear" is the single largest theme, at 55.7% of 375 comments read for this reason.</div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Other / unclear</span>
+            <span class="voc-cat-stat num">209 · 55.7%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:55.7%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ko abhi booking nahi karni hai, baad mein 10 tarik tak booking kargya"</li>
+            
+            <li>"cx ne kaha bas chack kr raha tha abhi decide nahi kiya hai and cut the call"</li>
+            
+            <li>"cx abhi information chahta h"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Just checking / exploring</span>
+            <span class="voc-cat-stat num">103 · 27.5%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:27.5%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ne bola ki abhi bas aise check kar rahi thi, aur agar booking karni hai toh app se kar legi. Agar koi help chahiye hoga toh helpline par…"</li>
+            
+            <li>"CX bas aise hi check kar raha tha, abhi koi jaldi nahi hai, but booking karn ha par confirm nahi hai ki kab karna hai."</li>
+            
+            <li>"CX bas check kar raha tha aur usse booking price aur security deposit ka amount jaana tha. CX ko bataya gaya aur phir usne call disconnect…"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Will book later / future need</span>
+            <span class="voc-cat-stat num">53 · 14.1%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:14.1%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx ne kaha haa lagwna hai but 2 month baad"</li>
+            
+            <li>"CX ko TV mein issue hai, isliye woh next month booking karega."</li>
+            
+            <li>"CX ne booking process ke baare mein jaankari li aur bola ki woh next month tak booking karega."</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">No current requirement / not interested</span>
+            <span class="voc-cat-stat num">8 · 2.1%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:2.1%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX bol raha hai ki abhi usse need nahi hai. Future mein zarurat hogi toh booking kar lega"</li>
+            
+            <li>"CX bol raha hai ki abhi need nahi hai, kyunki woh abhi 1 month tak nahi rahega. Future mein zarurat hogi toh booking kar lega."</li>
+            
+            <li>"CX bol raha hai ki abhi interested nahi hain. Future mein interested hone par khud call kar lenge."</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">App downloaded / visited by mistake</span>
+            <span class="voc-cat-stat num">1 · 0.3%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:0.3%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx ne wiom ka advatisment aaya tha to downoanlod kr liya tha bas chack kr raha tha baad mai lega bada bhai"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Comparing plans / providers</span>
+            <span class="voc-cat-stat num">1 · 0.3%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:0.3%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx 2 3 company ka dekh rhe h jiska shi lgega lgwa lenge"</li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </details>
+    
+    <details class="breakdown-group">
+      <summary class="bg-summary">
+        <div class="bg-left">
+          <div class="bg-swatch" style="background:var(--accent)"></div>
+          <div>
+            <div class="bg-title">Payment failed - UPI/card/bank issue</div>
+            <div class="bg-count">138 comments read · top theme: Does not use UPI / wants offline payment</div>
+          </div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-share num">37.0%</div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </summary>
+      <div class="bg-body">
+        <div class="voc-takeaway">"Does not use UPI / wants offline payment" is the single largest theme, at 37.0% of 138 comments read for this reason.</div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Does not use UPI / wants offline payment</span>
+            <span class="voc-cat-stat num">51 · 37.0%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:37.0%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx ko booking amount pay krna h but cx online payment use nhi krte h cx ko inform kr diya h booking ky liye online payment krna hota h cx…"</li>
+            
+            <li>"cx online payment use nahi karte hai cx ajj 5 minute me booking kar lenge"</li>
+            
+            <li>"cx upi use nahi karte hai"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Payment / UPI / app technical issue</span>
+            <span class="voc-cat-stat num">41 · 29.7%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:29.7%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx ko wiom app me scanner nahi aa raha hai and cx upi use nahi karte hai"</li>
+            
+            <li>"cx ky UPI me issue h"</li>
+            
+            <li>"cx ky paytm me issue aa rha h cx kal perso me booking krvaynge"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Other / unclear</span>
+            <span class="voc-cat-stat num">30 · 21.7%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:21.7%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx online use nahi karta hai and nahi unke family mai koi use krta hai"</li>
+            
+            <li>"cx bol rhe hai aj booking karwaayenge"</li>
+            
+            <li>"cx bol rhe hai 2din mai lagwa lenge"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Will complete booking shortly</span>
+            <span class="voc-cat-stat num">11 · 8.0%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:8.0%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx bol rhe hai 10min baad booking karenge"</li>
+            
+            <li>"CX agar payment karte hain, to unka autopay payment cut ho jata hai. Maine unhe bataya ki wo kisi shop se jaake payment karwa sakte hain,…"</li>
+            
+            <li>"cx ka kehna hai ki cx ke pass cash rehte hai cx online use nhi karte hai aaj karenge booking"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Plan / payment information needed</span>
+            <span class="voc-cat-stat num">3 · 2.2%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:2.2%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"The customer wanted information about the Wiom recharge plans, which was provided. The customer said he will complete the booking Tomorrow"</li>
+            
+            <li>"cx say karna hai lekin plan bata doh and booking process cx ne call cut kar di information le kar"</li>
+            
+            <li>"cx online use nhi karti hai cx ne husband ka no provide kiya tha booking information batane ke liya 9891373175 but unki side se no support"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Waiting for refund / retry</span>
+            <span class="voc-cat-stat num">2 · 1.4%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:1.4%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ka payment failed ho gaya hai. 72 ghante baad jab uska refund aayega, tab wo booking try karega"</li>
+            
+            <li>"The customer said that he had made a booking a few days ago for Chauhan Banger, Seelampur, where a booking fee of ₹45 was shown. He made…"</li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </details>
+    
+    <details class="breakdown-group">
+      <summary class="bg-summary">
+        <div class="bg-left">
+          <div class="bg-swatch" style="background:var(--accent)"></div>
+          <div>
+            <div class="bg-title">Others</div>
+            <div class="bg-count">340 comments read · top theme: Other / unclear</div>
+          </div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-share num">55.3%</div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </summary>
+      <div class="bg-body">
+        <div class="voc-takeaway">"Other / unclear" is the single largest theme, at 55.3% of 340 comments read for this reason.</div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Other / unclear</span>
+            <span class="voc-cat-stat num">188 · 55.3%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:55.3%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX abhi apni location pe nahi hai, isliye unhone booking nahi ki. Apni location pe jaake booking kar lenge."</li>
+            
+            <li>"CX abhi apni location par nahi hai, isliye unhone booking nahi ki. Lekin unhe booking karni hai, par date confirm nahi hai ki kab kargya"</li>
+            
+            <li>"cx 8-sep ko tv buy krege tb vo booking krege"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Booking intent / will book</span>
+            <span class="voc-cat-stat num">56 · 16.5%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:16.5%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ke ghar par network issue aa raha tha, isliye woh booking nahi kar paya tha. Lekin usko Netsetup lagwana hai. Booking ke regarding usko…"</li>
+            
+            <li>"CX location ke regarding confused tha, isliye use location ke liye guide kar diya gaya. CX shaam tak booking karega"</li>
+            
+            <li>"CX office ki wajah se booking nahi kar pa raha tha, lekin woh aaj shaam tak booking kar lega."</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Booking / app / process issue</span>
+            <span class="voc-cat-stat num">42 · 12.4%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:12.4%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"cx ne app delete kr diya h"</li>
+            
+            <li>"cx says ki app download krne ke bad OTP fill ka opction aa rha lekin cx OTP nhi dena chahta h"</li>
+            
+            <li>"CX abhi check kar raha hai. Unke bhai ne app download kiya tha. CX interested hai, lekin abhi koi specific booking date nahi batayi."</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Temporary constraint / unavailable</span>
+            <span class="voc-cat-stat num">22 · 6.5%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:6.5%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ko booking karni hai, lekin abhi CX busy hai. Booking kar gya , lekin confirm nahi hai ki kab kar gya ."</li>
+            
+            <li>"CX keh rahe hain ki jise location par lagwana chahte hain, wo abhi wha available nahi hai. Isliye, wo apni location par jaake booking kar…"</li>
+            
+            <li>"CX app is showing another location instead of the current location"</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Plan / product / service query</span>
+            <span class="voc-cat-stat num">17 · 5.0%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:5.0%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ko booking karni hai, but unke paas abhi Smart TV nahi hai. Isliye woh kuch time baad pehle Smart TV lenge, uske baad booking karenge."</li>
+            
+            <li>"CX abhi price aur recharge plans ki information le rahe the. Unhone bola ki kuch time baad booking karenge, lekin koi specific date nahi…"</li>
+            
+            <li>"The customer stated that he frequently shifts locations and does not want to pay the shifting charges."</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Not interested / no requirement</span>
+            <span class="voc-cat-stat num">9 · 2.6%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:2.6%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"Customer is not interested"</li>
+            
+            <li>"CX ne bola hai ki unhe booking nahi karni hai aur unhone call disconnect kar di."</li>
+            
+            <li>"CX bol raha hai ki woh sirf check kar raha tha aur booking mein interested nahi hai."</li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="voc-cat">
+          <div class="voc-cat-head">
+            <span class="voc-cat-name">Cancellation / refund issue</span>
+            <span class="voc-cat-stat num">6 · 1.8%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:1.8%; background:var(--accent);"></div></div>
+          
+          <ul class="voc-samples">
+            
+            <li>"CX ne bataya ki pehle booking ki thi, but setup nahi ho paya tha aur refund bhi aa gaya tha. Ab CX dubara booking ke liye ready hai aur aaj…"</li>
+            
+            <li>"CX had booked earlier, but the booking was cancelled. CX is now showing as serviceable, but the offer on the Wiom app is different. Due to…"</li>
+            
+            <li>"Customer said that he had completed the booking, but the booking was cancelled by Wiom."</li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </details>
+    
   </section>
 
   <footer>
