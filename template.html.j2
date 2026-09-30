@@ -5,9 +5,9 @@
 <style>
   :root{
     color-scheme: light;
-    --bg: #F4F7F7;
+    --bg: #EEF3F2;
     --surface: #FFFFFF;
-    --surface-2: #EAF1F0;
+    --surface-2: #E7EFEE;
     --surface-chart: #FCFCFB;
     --border: #D7E1E0;
     --text: #101817;
@@ -25,7 +25,7 @@
     --cat-4: #eda100;
     --cat-5: #e87ba4;
     --cat-6: #008300;
-    --shadow: 0 1px 2px rgba(16,24,23,0.04), 0 8px 24px -12px rgba(16,24,23,0.12);
+    --shadow: 0 1px 2px rgba(16,24,23,0.05), 0 10px 28px -14px rgba(16,24,23,0.18);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -150,35 +150,36 @@
     box-shadow: var(--shadow);
   }
 
-  .kpi-grid{
-    display:grid; grid-template-columns: repeat(6, 1fr); gap:1px;
-    background: var(--border); border:1px solid var(--border); border-radius:14px; overflow:hidden;
-    box-shadow: var(--shadow);
-  }
-  .kpi{ background: var(--surface); padding:18px 16px; min-width:0; }
-  .kpi-label{ font-size:12px; color: var(--text-muted); font-weight:600; }
-  .kpi-value{ font-size:24px; font-weight:700; margin-top:6px; letter-spacing:-0.02em; }
-  .kpi-sub{ font-size:12px; color: var(--accent-strong); margin-top:4px; font-weight:600; }
-  @media (max-width: 920px){ .kpi-grid{ grid-template-columns: repeat(3,1fr); } }
-  @media (max-width: 560px){ .kpi-grid{ grid-template-columns: repeat(2,1fr); } }
-
-  .funnel{ display:flex; align-items:stretch; gap:0; overflow-x:auto; padding-bottom:6px; }
+  .funnel{ display:flex; align-items:center; gap:8px; overflow-x:auto; padding:4px 4px 10px; }
   .funnel-stage{
-    flex: 1 1 0; min-width:150px; background:var(--surface); border:1px solid var(--border);
-    padding:16px 14px; position:relative; box-shadow: var(--shadow);
+    flex: 1 1 0; min-width:152px; align-self:stretch; background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:18px 16px; position:relative; box-shadow: var(--shadow);
   }
-  .funnel-stage:not(:first-child){ border-left:none; margin-left:-1px; }
-  .funnel-stage:first-child{ border-radius:12px 0 0 12px; }
-  .funnel-stage:last-child{ border-radius:0 12px 12px 0; }
+  .funnel-stage--hero{ background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+  .funnel-stage--hero .stage-value{ color: var(--accent-strong); }
   .funnel-stage .stage-name{ font-size:11.5px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.05em; }
-  .funnel-stage .stage-value{ font-size:21px; font-weight:700; margin-top:8px; }
+  .funnel-stage .stage-value{ font-size:25px; font-weight:700; margin-top:8px; letter-spacing:-0.02em; }
+  .funnel-stage .stage-caption{ font-size:11px; color:var(--text-muted); font-weight:600; margin-top:5px; }
   .funnel-bar{ height:6px; border-radius:4px; background:var(--surface-2); margin-top:10px; overflow:hidden; }
   .funnel-bar > i{ display:block; height:100%; background: var(--accent); border-radius:4px; }
   .funnel-arrow{
-    flex: 0 0 auto; width:26px; display:flex; align-items:center; justify-content:center;
-    color: var(--text-muted); font-size:12px; font-weight:700; background: var(--surface-2);
-    border-top:1px solid var(--border); border-bottom:1px solid var(--border); z-index:1;
+    flex: 0 0 auto; width:30px; height:30px; display:flex; align-items:center; justify-content:center;
+    color: var(--text-secondary); font-size:11px; font-weight:800; background: var(--surface-2);
+    border:1px solid var(--border); border-radius:50%;
   }
+
+  .stat-strip{
+    margin-top:20px; border:1px solid var(--border); border-radius:14px; background:var(--surface);
+    padding:20px 24px; box-shadow: var(--shadow);
+  }
+  .stat-strip-title{ font-size:14px; font-weight:700; }
+  .stat-strip-desc{ font-size:12.5px; color:var(--text-muted); display:block; margin-top:2px; }
+  .stat-row{ display:flex; flex-wrap:wrap; gap:16px 0; margin-top:16px; }
+  .stat{ flex:1 1 140px; padding:0 22px; border-left:1px solid var(--border); display:flex; flex-direction:column; gap:5px; }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat-label{ font-size:11px; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:.04em; }
+  .stat-value{ font-size:20px; font-weight:700; letter-spacing:-0.01em; }
+  @media (max-width: 640px){ .stat{ border-left:none; padding-left:0; } }
 
   .grid-2{ display:grid; grid-template-columns: 1.1fr 1fr; gap:20px; align-items:stretch; }
   @media (max-width: 880px){ .grid-2{ grid-template-columns: 1fr; } }
@@ -271,11 +272,10 @@
   <header class="hero">
     <div class="eyebrow">App drop-off calling · Executive summary</div>
     <h1 class="title">Where app drop-offs stall, and why they don't book.</h1>
-    <p class="subtitle">Every figure below is computed straight from <strong>CALL SHEET – APP Drop offs</strong> using the same aggregation logic as the <strong>Executive Summary – APP Dropoffs</strong> tab: COUNTUNIQUE / COUNTIFS for volumes, and MEDIAN/AVERAGE/PERCENTILE for decision-day timing — reorganised into one page.</p>
+    <p class="subtitle">A single view of the app drop-off calling funnel — where leads fall off, why they say no, and what it would take to bring them back.</p>
     <div class="meta-row">
-      <span><span class="dot"></span>Source: {{ source_name }} → CALL SHEET – APP Drop offs ({{ "{:,}".format(row_count) }} rows)</span>
-      <span><span class="dot"></span>Snapshot taken {{ snapshot_date }}</span>
-      <span><span class="dot"></span>Auto-refreshed daily from the live sheet</span>
+      <span><span class="dot"></span>{{ "{:,}".format(row_count) }} calls logged</span>
+      <span><span class="dot"></span>Updated {{ snapshot_date }}</span>
     </div>
   </header>
 
@@ -287,40 +287,8 @@
       <div class="section-note">Leads → attempted → connected → meaningfully connected → interested → booked.</div>
     </div>
 
-    <div class="kpi-grid">
-      <div class="kpi">
-        <div class="kpi-label">Total leads</div>
-        <div class="kpi-value num">{{ "{:,}".format(f.total_leads) }}</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Unique attempts</div>
-        <div class="kpi-value num">{{ "{:,}".format(f.unique_attempts) }}</div>
-        <div class="kpi-sub">{{ f.attempts_pct }}% of leads</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Connected</div>
-        <div class="kpi-value num">{{ "{:,}".format(f.connected) }}</div>
-        <div class="kpi-sub">{{ f.connect_pct }}% connect rate</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Meaningful connect</div>
-        <div class="kpi-value num">{{ "{:,}".format(f.meaningful_connect) }}</div>
-        <div class="kpi-sub">{{ f.mc_pct }}% of connected</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Interested</div>
-        <div class="kpi-value num">{{ "{:,}".format(f.interested) }}</div>
-        <div class="kpi-sub">{{ f.interest_pct }}% of connects</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Booked</div>
-        <div class="kpi-value num">{{ "{:,}".format(f.booked) }}</div>
-        <div class="kpi-sub">{{ f.booked_pct }}% of leads</div>
-      </div>
-    </div>
-
-    <div class="funnel" style="margin-top:20px;" aria-hidden="true">
-      <div class="funnel-stage" style="border-radius:12px 0 0 12px;">
+    <div class="funnel" aria-hidden="true">
+      <div class="funnel-stage">
         <div class="stage-name">Leads</div>
         <div class="stage-value num">{{ "{:,}".format(f.total_leads) }}</div>
         <div class="funnel-bar"><i style="width:100%"></i></div>
@@ -330,56 +298,61 @@
         <div class="stage-name">Attempted</div>
         <div class="stage-value num">{{ "{:,}".format(f.unique_attempts) }}</div>
         <div class="funnel-bar"><i style="width:{{ f.w_attempts }}%"></i></div>
+        <div class="stage-caption">{{ f.attempts_pct }}% of leads</div>
       </div>
       <div class="funnel-arrow">{{ f.arrow2 }}%</div>
       <div class="funnel-stage">
         <div class="stage-name">Connected</div>
         <div class="stage-value num">{{ "{:,}".format(f.connected) }}</div>
         <div class="funnel-bar"><i style="width:{{ f.w_connected }}%"></i></div>
+        <div class="stage-caption">{{ f.connect_pct }}% connect rate</div>
       </div>
       <div class="funnel-arrow">{{ f.arrow3 }}%</div>
       <div class="funnel-stage">
         <div class="stage-name">Meaningful connect</div>
         <div class="stage-value num">{{ "{:,}".format(f.meaningful_connect) }}</div>
         <div class="funnel-bar"><i style="width:{{ f.w_mc }}%"></i></div>
+        <div class="stage-caption">{{ f.mc_pct }}% of connected</div>
       </div>
       <div class="funnel-arrow">{{ f.arrow4 }}%</div>
       <div class="funnel-stage">
         <div class="stage-name">Interested</div>
         <div class="stage-value num">{{ "{:,}".format(f.interested) }}</div>
         <div class="funnel-bar"><i style="width:{{ f.w_interested }}%"></i></div>
+        <div class="stage-caption">{{ f.interest_pct }}% of connects</div>
       </div>
       <div class="funnel-arrow">{{ f.arrow5 }}%</div>
-      <div class="funnel-stage" style="border-radius:0 12px 12px 0;">
+      <div class="funnel-stage funnel-stage--hero">
         <div class="stage-name">Booked</div>
         <div class="stage-value num">{{ "{:,}".format(f.booked) }}</div>
         <div class="funnel-bar"><i style="width:{{ f.w_booked }}%"></i></div>
+        <div class="stage-caption">{{ f.booked_pct }}% of leads</div>
       </div>
     </div>
 
-    <div class="card card-pad" style="margin-top:18px;">
-      <div class="card-title">Follow-up cohort — leads with a decision date on file</div>
-      <div class="card-desc">Subset of leads where the agent captured a firm "come back to me on…" date (Decision date column populated).</div>
-      <div class="kpi-grid" style="grid-template-columns:repeat(5,1fr); background:transparent; border:none; box-shadow:none;">
-        <div class="kpi" style="border:1px solid var(--border); border-radius:10px;">
-          <div class="kpi-label">Leads</div>
-          <div class="kpi-value num" style="font-size:20px;">{{ "{:,}".format(fu.leads) }}</div>
+    <div class="stat-strip">
+      <span class="stat-strip-title">Follow-up cohort</span>
+      <span class="stat-strip-desc">Leads where the agent got a firm "come back to me on…" date from the customer.</span>
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-label">Leads</span>
+          <span class="stat-value num">{{ "{:,}".format(fu.leads) }}</span>
         </div>
-        <div class="kpi" style="border:1px solid var(--border); border-radius:10px;">
-          <div class="kpi-label">Unique attempts %</div>
-          <div class="kpi-value num" style="font-size:20px;">{{ fu.attempts_pct }}%</div>
+        <div class="stat">
+          <span class="stat-label">Attempted</span>
+          <span class="stat-value num">{{ fu.attempts_pct }}%</span>
         </div>
-        <div class="kpi" style="border:1px solid var(--border); border-radius:10px;">
-          <div class="kpi-label">Meaningful connect</div>
-          <div class="kpi-value num" style="font-size:20px;">{{ "{:,}".format(fu.mc) }}</div>
+        <div class="stat">
+          <span class="stat-label">Meaningful connect</span>
+          <span class="stat-value num">{{ "{:,}".format(fu.mc) }}</span>
         </div>
-        <div class="kpi" style="border:1px solid var(--border); border-radius:10px;">
-          <div class="kpi-label">Connect %</div>
-          <div class="kpi-value num" style="font-size:20px;">{{ fu.connect_pct }}%</div>
+        <div class="stat">
+          <span class="stat-label">Connect rate</span>
+          <span class="stat-value num">{{ fu.connect_pct }}%</span>
         </div>
-        <div class="kpi" style="border:1px solid var(--border); border-radius:10px;">
-          <div class="kpi-label">Already booked %</div>
-          <div class="kpi-value num" style="font-size:20px; color:var(--good);">{{ fu.booked_pct }}%</div>
+        <div class="stat">
+          <span class="stat-label">Already booked</span>
+          <span class="stat-value num" style="color:var(--good);">{{ fu.booked_pct }}%</span>
         </div>
       </div>
     </div>
@@ -393,7 +366,7 @@
     <div class="grid-2">
       <div class="card card-pad">
         <div class="card-title">Intent distribution (bifurcation)</div>
-        <div class="card-desc">Every lead's final intent tag, from CALL SHEET column A — total leads vs. how many still booked anyway.</div>
+        <div class="card-desc">Every lead's final outcome — total leads vs. how many still booked anyway.</div>
 
         {% for c in intent_categories %}
         <div class="barrow">
@@ -467,7 +440,7 @@
   <section id="breakdown">
     <div class="section-head">
       <h2>Full reason breakdown, by outcome</h2>
-      <div class="section-note">Same pivot as Executive Summary: every logged reason grouped under its outcome bucket, ranked by count. Share is of the {{ "{:,}".format(grand_total) }} outcome-tagged calls.</div>
+      <div class="section-note">Every logged reason grouped under its outcome bucket, ranked by count. Share is of the {{ "{:,}".format(grand_total) }} outcome-tagged calls.</div>
     </div>
 
     {% for g in breakdown_groups %}
@@ -518,7 +491,7 @@
 
     <div class="voc-callout">
       <span>💬</span>
-      <span><b>How this is different from the rest of this page:</b> every other section here is a deterministic count straight off the sheet. This section reads the free-text comment agents leave per call ("What EXACTLY are they waiting for") and sorts it into themes using keyword rules — the same theme taxonomy the source sheet's own VOC tab uses, re-applied to current data. It's a best-effort classification, not an exact formula, so treat these shares as directional.</span>
+      <span><b>How this is different from the rest of this page:</b> every other tab is an exact count. This one reads the free-text note agents leave per call and sorts it into themes with keyword rules, refreshed against current calls. It's a best-effort read, not an exact count — treat these shares as directional.</span>
     </div>
 
     {% for g in voc_groups %}
@@ -562,8 +535,8 @@
   </div>
 
   <footer>
-    <p><strong>Methodology.</strong> Total Leads = COUNTUNIQUE of phone numbers; Unique Attempts = non-blank call-time entries; Connected = Connect Status starting "Connected"; Meaningful Connect = Connect Status exactly "Connected – spoke to customer"; Interested = Interest Bucket in either "Interested – Not Yet" state; Booked = booking flag = 1 on a connected call. Reason and outcome tables group each logged primary-reason code under its mapped outcome bucket (Wouldn't / Not Yet / Couldn't / Existing Wiom / Already Booked / Unknown), identical to the mapping used in the source sheet's DAILY SUMMARY tab. All text matching is case-insensitive, matching Google Sheets' COUNTIF/COUNTIFS behaviour — several fields (Connect Status, Interest Bucket) carry mixed-case duplicates in the raw data that are folded together here exactly as they are on the live sheet.</p>
-    <p style="margin-top:10px;">Rebuilt automatically once a day from <strong>CALL SHEET – APP Drop offs</strong> in Wiom_Dropoff_Calling_Pack_03Sep2026. Numbers reflect the sheet as of the snapshot time above, not the exact moment you're viewing this page.</p>
+    <p><strong>Definitions.</strong> Unique Attempts — leads with at least one call logged. Connected — any call where the customer picked up. Meaningful Connect — a connected call where the customer actually spoke with the agent. Interested — customers still open to booking but not yet committed to a date. Booked — a connection confirmed on a connected call.</p>
+    <p style="margin-top:10px;">Updated once a day. Numbers reflect calls logged as of the date above, not the exact moment you're viewing this page.</p>
   </footer>
 
 </div>
