@@ -134,7 +134,7 @@ def classify_voc(df, col):
         cats.sort(key=lambda c: -c["count"])
 
         top = cats[0]
-        takeaway = f"\"{top['name']}\" is the single largest theme, at {top['pct']}% of {total} comments read for this reason."
+        takeaway = f"\"{top['name']}\" is the single largest theme among the {total} comments read for this reason."
 
         groups.append(dict(
             reason_label=reason_label,

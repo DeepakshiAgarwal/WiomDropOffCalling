@@ -163,9 +163,9 @@
   .funnel-bar{ height:6px; border-radius:4px; background:var(--surface-2); margin-top:10px; overflow:hidden; }
   .funnel-bar > i{ display:block; height:100%; background: var(--accent); border-radius:4px; }
   .funnel-arrow{
-    flex: 0 0 auto; width:30px; height:30px; display:flex; align-items:center; justify-content:center;
+    flex: 0 0 auto; min-width:30px; height:26px; padding:0 8px; display:flex; align-items:center; justify-content:center;
     color: var(--text-secondary); font-size:11px; font-weight:800; background: var(--surface-2);
-    border:1px solid var(--border); border-radius:50%;
+    border:1px solid var(--border); border-radius:999px; white-space:nowrap;
   }
 
   .stat-strip{
@@ -284,49 +284,43 @@
   <section id="funnel">
     <div class="section-head">
       <h2>Calling funnel</h2>
-      <div class="section-note">Leads → attempted → connected → meaningfully connected → interested → booked.</div>
+      <div class="section-note">Attempted → connected → meaningfully connected → interested → booked.</div>
     </div>
 
     <div class="funnel" aria-hidden="true">
       <div class="funnel-stage">
-        <div class="stage-name">Leads</div>
-        <div class="stage-value num">22,238</div>
-        <div class="funnel-bar"><i style="width:100%"></i></div>
-      </div>
-      <div class="funnel-arrow">89%</div>
-      <div class="funnel-stage">
         <div class="stage-name">Attempted</div>
-        <div class="stage-value num">19,722</div>
-        <div class="funnel-bar"><i style="width:88.7%"></i></div>
-        <div class="stage-caption">88.7% of leads</div>
+        <div class="stage-value num">19,847</div>
+        <div class="funnel-bar"><i style="width:89.2%"></i></div>
+        <div class="stage-caption">89.2% of leads</div>
       </div>
-      <div class="funnel-arrow">45%</div>
+      <div class="funnel-arrow">44.7%</div>
       <div class="funnel-stage">
         <div class="stage-name">Connected</div>
-        <div class="stage-value num">8,823</div>
-        <div class="funnel-bar"><i style="width:39.7%"></i></div>
+        <div class="stage-value num">8,865</div>
+        <div class="funnel-bar"><i style="width:39.9%"></i></div>
         <div class="stage-caption">44.7% connect rate</div>
       </div>
-      <div class="funnel-arrow">67%</div>
+      <div class="funnel-arrow">66.7%</div>
       <div class="funnel-stage">
         <div class="stage-name">Meaningful connect</div>
-        <div class="stage-value num">5,883</div>
-        <div class="funnel-bar"><i style="width:26.5%"></i></div>
+        <div class="stage-value num">5,911</div>
+        <div class="funnel-bar"><i style="width:26.6%"></i></div>
         <div class="stage-caption">66.7% of connected</div>
       </div>
-      <div class="funnel-arrow">40%</div>
+      <div class="funnel-arrow">39.7%</div>
       <div class="funnel-stage">
         <div class="stage-name">Interested</div>
-        <div class="stage-value num">2,333</div>
+        <div class="stage-value num">2,344</div>
         <div class="funnel-bar"><i style="width:10.5%"></i></div>
         <div class="stage-caption">39.7% of connects</div>
       </div>
-      <div class="funnel-arrow">19%</div>
+      <div class="funnel-arrow">18.8%</div>
       <div class="funnel-stage funnel-stage--hero">
         <div class="stage-name">Booked</div>
         <div class="stage-value num">440</div>
         <div class="funnel-bar"><i style="width:2.0%"></i></div>
-        <div class="stage-caption">1.98% of leads</div>
+        <div class="stage-caption">2.0% of leads</div>
       </div>
     </div>
 
@@ -336,11 +330,11 @@
       <div class="stat-row">
         <div class="stat">
           <span class="stat-label">Leads</span>
-          <span class="stat-value num">1,575</span>
+          <span class="stat-value num">1,585</span>
         </div>
         <div class="stat">
           <span class="stat-label">Attempted</span>
-          <span class="stat-value num">61.7%</span>
+          <span class="stat-value num">61.9%</span>
         </div>
         <div class="stat">
           <span class="stat-label">Meaningful connect</span>
@@ -348,7 +342,7 @@
         </div>
         <div class="stat">
           <span class="stat-label">Connect rate</span>
-          <span class="stat-value num">50.6%</span>
+          <span class="stat-value num">50.1%</span>
         </div>
         <div class="stat">
           <span class="stat-label">Already booked</span>
@@ -372,37 +366,37 @@
         <div class="barrow">
           <div class="lbl">Wouldn't</div>
           <div class="track"><div class="fill" style="width:100.0%; background:var(--cat-1);"></div></div>
-          <div class="val num">2,051</div>
+          <div class="val num">2,070 (39.2%)</div>
         </div>
         
         <div class="barrow">
           <div class="lbl">Not Yet</div>
-          <div class="track"><div class="fill" style="width:69.7%; background:var(--cat-2);"></div></div>
-          <div class="val num">1,429</div>
+          <div class="track"><div class="fill" style="width:69.6%; background:var(--cat-2);"></div></div>
+          <div class="val num">1,441 (27.3%)</div>
         </div>
         
         <div class="barrow">
           <div class="lbl">Couldn't</div>
-          <div class="track"><div class="fill" style="width:47.7%; background:var(--cat-3);"></div></div>
-          <div class="val num">979</div>
+          <div class="track"><div class="fill" style="width:47.6%; background:var(--cat-3);"></div></div>
+          <div class="val num">985 (18.7%)</div>
         </div>
         
         <div class="barrow">
           <div class="lbl">Unknown</div>
-          <div class="track"><div class="fill" style="width:15.3%; background:var(--cat-4);"></div></div>
-          <div class="val num">313</div>
+          <div class="track"><div class="fill" style="width:15.1%; background:var(--cat-4);"></div></div>
+          <div class="val num">313 (5.9%)</div>
         </div>
         
         <div class="barrow">
           <div class="lbl">Already Booked</div>
-          <div class="track"><div class="fill" style="width:14.1%; background:var(--cat-5);"></div></div>
-          <div class="val num">289</div>
+          <div class="track"><div class="fill" style="width:14.0%; background:var(--cat-5);"></div></div>
+          <div class="val num">289 (5.5%)</div>
         </div>
         
         <div class="barrow">
           <div class="lbl">Existing Wiom/Net</div>
-          <div class="track"><div class="fill" style="width:8.7%; background:var(--cat-6);"></div></div>
-          <div class="val num">179</div>
+          <div class="track"><div class="fill" style="width:8.6%; background:var(--cat-6);"></div></div>
+          <div class="val num">179 (3.4%)</div>
         </div>
         
 
@@ -425,42 +419,42 @@
 
       <div class="card card-pad" id="reasons">
         <div class="card-title">Top 5 reasons customers don't book</div>
-        <div class="card-desc">Share of meaningful-connect calls (5,883) citing each reason, "Others" excluded.</div>
+        <div class="card-desc">Share of meaningful-connect calls (5,911) citing each reason, "Others" excluded.</div>
 
         
         <div class="barrow">
           <div class="lbl">Non-Serviceable Area</div>
           <div class="track"><div class="fill" style="width:100.0%; background:var(--accent);"></div></div>
-          <div class="val num">14.55%</div>
+          <div class="val num">14.5%</div>
         </div>
         
         <div class="barrow">
           <div class="lbl">Booking Process & Plan Unclear Before</div>
-          <div class="track"><div class="fill" style="width:97.7%; background:var(--accent);"></div></div>
-          <div class="val num">14.21%</div>
+          <div class="track"><div class="fill" style="width:97.9%; background:var(--accent);"></div></div>
+          <div class="val num">14.2%</div>
         </div>
         
         <div class="barrow">
           <div class="lbl">Just Exploring, No Immediate Requirement</div>
-          <div class="track"><div class="fill" style="width:44.2%; background:var(--accent);"></div></div>
-          <div class="val num">6.43%</div>
+          <div class="track"><div class="fill" style="width:44.8%; background:var(--accent);"></div></div>
+          <div class="val num">6.5%</div>
         </div>
         
         <div class="barrow">
           <div class="lbl">Old connection is Still Active</div>
           <div class="track"><div class="fill" style="width:43.4%; background:var(--accent);"></div></div>
-          <div class="val num">6.32%</div>
+          <div class="val num">6.3%</div>
         </div>
         
         <div class="barrow">
           <div class="lbl">Out Of Town</div>
-          <div class="track"><div class="fill" style="width:39.5%; background:var(--accent);"></div></div>
-          <div class="val num">5.75%</div>
+          <div class="track"><div class="fill" style="width:39.3%; background:var(--accent);"></div></div>
+          <div class="val num">5.7%</div>
         </div>
         
 
         <div class="legend">
-          <div class="legend-item">These 5 reasons alone account for <strong style="color:var(--text)">&nbsp;47.3%&nbsp;</strong> of every meaningful-connect call.</div>
+          <div class="legend-item">These 5 reasons alone account for <strong style="color:var(--text)">&nbsp;47.2%&nbsp;</strong> of every meaningful-connect call.</div>
         </div>
       </div>
     </div>
@@ -488,47 +482,11 @@
             
             <tr>
               <td><span class="pill">Interested · date known</span></td>
-              <td class="num">1,602</td>
+              <td class="num">1,612</td>
               <td class="num ">0</td>
               <td class="num ">1.66</td>
               <td class="num ">5</td>
               <td class="num ">7</td>
-            </tr>
-            
-            <tr>
-              <td>Not interested · lost</td>
-              <td class="num">2,597</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-            </tr>
-            
-            <tr>
-              <td>Ready to book now</td>
-              <td class="num">57</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-            </tr>
-            
-            <tr>
-              <td>Undecided</td>
-              <td class="num">453</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-            </tr>
-            
-            <tr>
-              <td>Interested · date unknown</td>
-              <td class="num">731</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
-              <td class="num muted-cell">N/A</td>
             </tr>
             
           </tbody>
@@ -540,7 +498,7 @@
   <section id="breakdown">
     <div class="section-head">
       <h2>Full reason breakdown, by outcome</h2>
-      <div class="section-note">Every logged reason grouped under its outcome bucket, ranked by count. Share is of the 4,965 outcome-tagged calls.</div>
+      <div class="section-note">Every logged reason grouped under its outcome bucket, ranked by count. Share is of the 4,992 outcome-tagged calls.</div>
     </div>
 
     
@@ -550,7 +508,7 @@
           <div class="bg-swatch" style="background:var(--cat-1)"></div>
           <div>
             <div class="bg-title">Wouldn't</div>
-            <div class="bg-count">16 reasons logged · 2,352 calls</div>
+            <div class="bg-count">16 reasons logged · 2,365 calls</div>
           </div>
         </div>
         <div class="bg-right">
@@ -564,37 +522,37 @@
             <thead><tr><th>Reason</th><th class="num">Count</th><th class="num">% of total</th></tr></thead>
             <tbody>
               
-              <tr><td>Booking Process & Plan Unclear Before</td><td class="num">836</td><td class="num">16.84%</td></tr>
+              <tr><td>Booking Process & Plan Unclear Before</td><td class="num">841</td><td class="num">16.8%</td></tr>
               
-              <tr><td>Just Exploring - Not Interested</td><td class="num">283</td><td class="num">5.7%</td></tr>
+              <tr><td>Just Exploring - Not Interested</td><td class="num">284</td><td class="num">5.7%</td></tr>
               
-              <tr><td>Wrong Number</td><td class="num">248</td><td class="num">4.99%</td></tr>
+              <tr><td>Wrong Number</td><td class="num">250</td><td class="num">5.0%</td></tr>
               
-              <tr><td>Downloaded by Mistake</td><td class="num">221</td><td class="num">4.45%</td></tr>
+              <tr><td>Downloaded by Mistake</td><td class="num">221</td><td class="num">4.4%</td></tr>
               
-              <tr><td>Connection Taken From Another Company</td><td class="num">188</td><td class="num">3.79%</td></tr>
+              <tr><td>Connection Taken From Another Company</td><td class="num">189</td><td class="num">3.8%</td></tr>
               
-              <tr><td>Costlier Than Exisiting Connection</td><td class="num">118</td><td class="num">2.38%</td></tr>
+              <tr><td>Costlier Than Exisiting Connection</td><td class="num">119</td><td class="num">2.4%</td></tr>
               
-              <tr><td>Comparing With A Competitor's Offer</td><td class="num">82</td><td class="num">1.65%</td></tr>
+              <tr><td>Comparing With A Competitor's Offer</td><td class="num">83</td><td class="num">1.7%</td></tr>
               
-              <tr><td>Looking For A Better Plan</td><td class="num">67</td><td class="num">1.35%</td></tr>
+              <tr><td>Looking For A Better Plan</td><td class="num">67</td><td class="num">1.3%</td></tr>
               
-              <tr><td>No Longer Required – Managing With Mobile Data</td><td class="num">54</td><td class="num">1.09%</td></tr>
+              <tr><td>No Longer Required – Managing With Mobile Data</td><td class="num">54</td><td class="num">1.1%</td></tr>
               
-              <tr><td>Was Only Browsing / Not The Decision-Maker</td><td class="num">53</td><td class="num">1.07%</td></tr>
+              <tr><td>Was Only Browsing / Not The Decision-Maker</td><td class="num">53</td><td class="num">1.1%</td></tr>
               
-              <tr><td>Trust</td><td class="num">51</td><td class="num">1.03%</td></tr>
+              <tr><td>Trust</td><td class="num">51</td><td class="num">1.0%</td></tr>
               
-              <tr><td>Specific OTT Pack Requirement</td><td class="num">51</td><td class="num">1.03%</td></tr>
+              <tr><td>Specific OTT Pack Requirement</td><td class="num">51</td><td class="num">1.0%</td></tr>
               
-              <tr><td>Questioning Booking Fee</td><td class="num">45</td><td class="num">0.91%</td></tr>
+              <tr><td>Questioning Booking Fee</td><td class="num">46</td><td class="num">0.9%</td></tr>
               
-              <tr><td>Prior Experience With Wiom/CSP</td><td class="num">36</td><td class="num">0.73%</td></tr>
+              <tr><td>Prior Experience With Wiom/CSP</td><td class="num">37</td><td class="num">0.7%</td></tr>
               
-              <tr><td>Doubting Speed & Bandwidth</td><td class="num">12</td><td class="num">0.24%</td></tr>
+              <tr><td>Doubting Speed & Bandwidth</td><td class="num">12</td><td class="num">0.2%</td></tr>
               
-              <tr><td>Internal Range & Coverage</td><td class="num">7</td><td class="num">0.14%</td></tr>
+              <tr><td>Internal Range & Coverage</td><td class="num">7</td><td class="num">0.1%</td></tr>
               
             </tbody>
           </table>
@@ -608,7 +566,7 @@
           <div class="bg-swatch" style="background:var(--cat-2)"></div>
           <div>
             <div class="bg-title">Not Yet</div>
-            <div class="bg-count">8 reasons logged · 1,438 calls</div>
+            <div class="bg-count">8 reasons logged · 1,446 calls</div>
           </div>
         </div>
         <div class="bg-right">
@@ -622,21 +580,21 @@
             <thead><tr><th>Reason</th><th class="num">Count</th><th class="num">% of total</th></tr></thead>
             <tbody>
               
-              <tr><td>Just Exploring, No Immediate Requirement</td><td class="num">378</td><td class="num">7.61%</td></tr>
+              <tr><td>Just Exploring, No Immediate Requirement</td><td class="num">382</td><td class="num">7.7%</td></tr>
               
-              <tr><td>Old connection is Still Active</td><td class="num">372</td><td class="num">7.49%</td></tr>
+              <tr><td>Old connection is Still Active</td><td class="num">374</td><td class="num">7.5%</td></tr>
               
-              <tr><td>Out Of Town</td><td class="num">338</td><td class="num">6.81%</td></tr>
+              <tr><td>Out Of Town</td><td class="num">339</td><td class="num">6.8%</td></tr>
               
-              <tr><td>Need To Discuss With Family</td><td class="num">139</td><td class="num">2.8%</td></tr>
+              <tr><td>Need To Discuss With Family</td><td class="num">140</td><td class="num">2.8%</td></tr>
               
-              <tr><td>Shifting</td><td class="num">94</td><td class="num">1.89%</td></tr>
+              <tr><td>Shifting</td><td class="num">94</td><td class="num">1.9%</td></tr>
               
-              <tr><td>Financial Contraints</td><td class="num">87</td><td class="num">1.75%</td></tr>
+              <tr><td>Financial Contraints</td><td class="num">87</td><td class="num">1.7%</td></tr>
               
-              <tr><td>Waiting For Salary</td><td class="num">17</td><td class="num">0.34%</td></tr>
+              <tr><td>Waiting For Salary</td><td class="num">17</td><td class="num">0.3%</td></tr>
               
-              <tr><td>Installation Timing – Wants A Different Date</td><td class="num">13</td><td class="num">0.26%</td></tr>
+              <tr><td>Installation Timing – Wants A Different Date</td><td class="num">13</td><td class="num">0.3%</td></tr>
               
             </tbody>
           </table>
@@ -650,7 +608,7 @@
           <div class="bg-swatch" style="background:var(--cat-3)"></div>
           <div>
             <div class="bg-title">Couldn't</div>
-            <div class="bg-count">2 reasons logged · 994 calls</div>
+            <div class="bg-count">2 reasons logged · 1,000 calls</div>
           </div>
         </div>
         <div class="bg-right">
@@ -664,9 +622,9 @@
             <thead><tr><th>Reason</th><th class="num">Count</th><th class="num">% of total</th></tr></thead>
             <tbody>
               
-              <tr><td>Non-Serviceable Area</td><td class="num">856</td><td class="num">17.24%</td></tr>
+              <tr><td>Non-Serviceable Area</td><td class="num">858</td><td class="num">17.2%</td></tr>
               
-              <tr><td>Payment Failed</td><td class="num">138</td><td class="num">2.78%</td></tr>
+              <tr><td>Payment Failed</td><td class="num">142</td><td class="num">2.8%</td></tr>
               
             </tbody>
           </table>
@@ -694,7 +652,7 @@
             <thead><tr><th>Reason</th><th class="num">Count</th><th class="num">% of total</th></tr></thead>
             <tbody>
               
-              <tr><td>Existing Wiom customer / Wiom Net</td><td class="num">181</td><td class="num">3.65%</td></tr>
+              <tr><td>Existing Wiom customer / Wiom Net</td><td class="num">181</td><td class="num">3.6%</td></tr>
               
             </tbody>
           </table>
@@ -705,7 +663,7 @@
 
     <div class="card card-pad" style="margin-top:14px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
       <div class="card-title" style="margin:0;">Grand total (outcome-tagged calls)</div>
-      <div class="num" style="font-size:20px; font-weight:700;">4,965</div>
+      <div class="num" style="font-size:20px; font-weight:700;">4,992</div>
     </div>
   </section>
 
@@ -731,23 +689,22 @@
           <div class="bg-swatch" style="background:var(--accent)"></div>
           <div>
             <div class="bg-title">Non-serviceable area</div>
-            <div class="bg-count">853 comments read · top theme: Area / location not serviceable</div>
+            <div class="bg-count">855 comments read · top theme: Area / location not serviceable</div>
           </div>
         </div>
         <div class="bg-right">
-          <div class="bg-share num">90.7%</div>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
         </div>
       </summary>
       <div class="bg-body">
-        <div class="voc-takeaway">"Area / location not serviceable" is the single largest theme, at 90.7% of 853 comments read for this reason.</div>
+        <div class="voc-takeaway">"Area / location not serviceable" is the single largest theme among the 855 comments read for this reason.</div>
         
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Area / location not serviceable</span>
-            <span class="voc-cat-stat num">774 · 90.7%</span>
+            <span class="voc-cat-stat num">776 · 90.8%</span>
           </div>
-          <div class="track"><div class="fill" style="width:90.7%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:90.8%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -764,9 +721,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Non-serviceable shown in app/phone</span>
-            <span class="voc-cat-stat num">79 · 9.3%</span>
+            <span class="voc-cat-stat num">79 · 9.2%</span>
           </div>
-          <div class="track"><div class="fill" style="width:9.3%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:9.2%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -789,23 +746,22 @@
           <div class="bg-swatch" style="background:var(--accent)"></div>
           <div>
             <div class="bg-title">Confusion regarding booking process</div>
-            <div class="bg-count">832 comments read · top theme: Plan / recharge / charges information</div>
+            <div class="bg-count">838 comments read · top theme: Plan / recharge / charges information</div>
           </div>
         </div>
         <div class="bg-right">
-          <div class="bg-share num">38.8%</div>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
         </div>
       </summary>
       <div class="bg-body">
-        <div class="voc-takeaway">"Plan / recharge / charges information" is the single largest theme, at 38.8% of 832 comments read for this reason.</div>
+        <div class="voc-takeaway">"Plan / recharge / charges information" is the single largest theme among the 838 comments read for this reason.</div>
         
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Plan / recharge / charges information</span>
-            <span class="voc-cat-stat num">323 · 38.8%</span>
+            <span class="voc-cat-stat num">326 · 38.9%</span>
           </div>
-          <div class="track"><div class="fill" style="width:38.8%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:38.9%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -822,9 +778,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Booking intent - date/time committed</span>
-            <span class="voc-cat-stat num">214 · 25.7%</span>
+            <span class="voc-cat-stat num">217 · 25.9%</span>
           </div>
-          <div class="track"><div class="fill" style="width:25.7%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:25.9%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -841,9 +797,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Other / unclear / decision pending</span>
-            <span class="voc-cat-stat num">165 · 19.8%</span>
+            <span class="voc-cat-stat num">165 · 19.7%</span>
           </div>
-          <div class="track"><div class="fill" style="width:19.8%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:19.7%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -860,9 +816,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Booking process / guidance</span>
-            <span class="voc-cat-stat num">59 · 7.1%</span>
+            <span class="voc-cat-stat num">59 · 7.0%</span>
           </div>
-          <div class="track"><div class="fill" style="width:7.1%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:7.0%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -961,23 +917,22 @@
           <div class="bg-swatch" style="background:var(--accent)"></div>
           <div>
             <div class="bg-title">Purana connection chal raha hai</div>
-            <div class="bg-count">273 comments read · top theme: Other / unclear</div>
+            <div class="bg-count">275 comments read · top theme: Other / unclear</div>
           </div>
         </div>
         <div class="bg-right">
-          <div class="bg-share num">41.8%</div>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
         </div>
       </summary>
       <div class="bg-body">
-        <div class="voc-takeaway">"Other / unclear" is the single largest theme, at 41.8% of 273 comments read for this reason.</div>
+        <div class="voc-takeaway">"Other / unclear" is the single largest theme among the 275 comments read for this reason.</div>
         
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Other / unclear</span>
-            <span class="voc-cat-stat num">114 · 41.8%</span>
+            <span class="voc-cat-stat num">114 · 41.5%</span>
           </div>
-          <div class="track"><div class="fill" style="width:41.8%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:41.5%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -994,9 +949,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Existing competitor / other ISP active</span>
-            <span class="voc-cat-stat num">102 · 37.4%</span>
+            <span class="voc-cat-stat num">103 · 37.5%</span>
           </div>
-          <div class="track"><div class="fill" style="width:37.4%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:37.5%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1013,9 +968,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Will book later / undecided</span>
-            <span class="voc-cat-stat num">31 · 11.4%</span>
+            <span class="voc-cat-stat num">31 · 11.3%</span>
           </div>
-          <div class="track"><div class="fill" style="width:11.4%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:11.3%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1051,9 +1006,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Price / plan / feature concern</span>
-            <span class="voc-cat-stat num">8 · 2.9%</span>
+            <span class="voc-cat-stat num">9 · 3.3%</span>
           </div>
-          <div class="track"><div class="fill" style="width:2.9%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:3.3%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1127,23 +1082,22 @@
           <div class="bg-swatch" style="background:var(--accent)"></div>
           <div>
             <div class="bg-title">Just exploring, no immediate requirement</div>
-            <div class="bg-count">376 comments read · top theme: Other / unclear</div>
+            <div class="bg-count">380 comments read · top theme: Other / unclear</div>
           </div>
         </div>
         <div class="bg-right">
-          <div class="bg-share num">55.9%</div>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
         </div>
       </summary>
       <div class="bg-body">
-        <div class="voc-takeaway">"Other / unclear" is the single largest theme, at 55.9% of 376 comments read for this reason.</div>
+        <div class="voc-takeaway">"Other / unclear" is the single largest theme among the 380 comments read for this reason.</div>
         
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Other / unclear</span>
-            <span class="voc-cat-stat num">210 · 55.9%</span>
+            <span class="voc-cat-stat num">213 · 56.1%</span>
           </div>
-          <div class="track"><div class="fill" style="width:55.9%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:56.1%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1160,7 +1114,7 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Just checking / exploring</span>
-            <span class="voc-cat-stat num">103 · 27.4%</span>
+            <span class="voc-cat-stat num">104 · 27.4%</span>
           </div>
           <div class="track"><div class="fill" style="width:27.4%; background:var(--accent);"></div></div>
           
@@ -1179,9 +1133,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Will book later / future need</span>
-            <span class="voc-cat-stat num">53 · 14.1%</span>
+            <span class="voc-cat-stat num">53 · 13.9%</span>
           </div>
-          <div class="track"><div class="fill" style="width:14.1%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:13.9%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1253,23 +1207,22 @@
           <div class="bg-swatch" style="background:var(--accent)"></div>
           <div>
             <div class="bg-title">Payment failed - UPI/card/bank issue</div>
-            <div class="bg-count">138 comments read · top theme: Does not use UPI / wants offline payment</div>
+            <div class="bg-count">142 comments read · top theme: Does not use UPI / wants offline payment</div>
           </div>
         </div>
         <div class="bg-right">
-          <div class="bg-share num">37.0%</div>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
         </div>
       </summary>
       <div class="bg-body">
-        <div class="voc-takeaway">"Does not use UPI / wants offline payment" is the single largest theme, at 37.0% of 138 comments read for this reason.</div>
+        <div class="voc-takeaway">"Does not use UPI / wants offline payment" is the single largest theme among the 142 comments read for this reason.</div>
         
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Does not use UPI / wants offline payment</span>
-            <span class="voc-cat-stat num">51 · 37.0%</span>
+            <span class="voc-cat-stat num">53 · 37.3%</span>
           </div>
-          <div class="track"><div class="fill" style="width:37.0%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:37.3%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1286,9 +1239,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Payment / UPI / app technical issue</span>
-            <span class="voc-cat-stat num">41 · 29.7%</span>
+            <span class="voc-cat-stat num">43 · 30.3%</span>
           </div>
-          <div class="track"><div class="fill" style="width:29.7%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:30.3%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1305,9 +1258,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Other / unclear</span>
-            <span class="voc-cat-stat num">30 · 21.7%</span>
+            <span class="voc-cat-stat num">30 · 21.1%</span>
           </div>
-          <div class="track"><div class="fill" style="width:21.7%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:21.1%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1324,9 +1277,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Will complete booking shortly</span>
-            <span class="voc-cat-stat num">11 · 8.0%</span>
+            <span class="voc-cat-stat num">11 · 7.7%</span>
           </div>
-          <div class="track"><div class="fill" style="width:8.0%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:7.7%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1343,9 +1296,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Plan / payment information needed</span>
-            <span class="voc-cat-stat num">3 · 2.2%</span>
+            <span class="voc-cat-stat num">3 · 2.1%</span>
           </div>
-          <div class="track"><div class="fill" style="width:2.2%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:2.1%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1385,23 +1338,22 @@
           <div class="bg-swatch" style="background:var(--accent)"></div>
           <div>
             <div class="bg-title">Others</div>
-            <div class="bg-count">341 comments read · top theme: Other / unclear</div>
+            <div class="bg-count">342 comments read · top theme: Other / unclear</div>
           </div>
         </div>
         <div class="bg-right">
-          <div class="bg-share num">55.4%</div>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
         </div>
       </summary>
       <div class="bg-body">
-        <div class="voc-takeaway">"Other / unclear" is the single largest theme, at 55.4% of 341 comments read for this reason.</div>
+        <div class="voc-takeaway">"Other / unclear" is the single largest theme among the 342 comments read for this reason.</div>
         
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Other / unclear</span>
-            <span class="voc-cat-stat num">189 · 55.4%</span>
+            <span class="voc-cat-stat num">189 · 55.3%</span>
           </div>
-          <div class="track"><div class="fill" style="width:55.4%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:55.3%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1456,9 +1408,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Temporary constraint / unavailable</span>
-            <span class="voc-cat-stat num">22 · 6.5%</span>
+            <span class="voc-cat-stat num">22 · 6.4%</span>
           </div>
-          <div class="track"><div class="fill" style="width:6.5%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:6.4%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             
@@ -1475,9 +1427,9 @@
         <div class="voc-cat">
           <div class="voc-cat-head">
             <span class="voc-cat-name">Plan / product / service query</span>
-            <span class="voc-cat-stat num">17 · 5.0%</span>
+            <span class="voc-cat-stat num">18 · 5.3%</span>
           </div>
-          <div class="track"><div class="fill" style="width:5.0%; background:var(--accent);"></div></div>
+          <div class="track"><div class="fill" style="width:5.3%; background:var(--accent);"></div></div>
           
           <ul class="voc-samples">
             

@@ -114,7 +114,7 @@ def compute_funnel(df):
     f["connect_pct"] = pct(f["connected"], f["unique_attempts"])
     f["mc_pct"] = pct(f["meaningful_connect"], f["connected"])
     f["interest_pct"] = pct(f["interested"], f["meaningful_connect"])
-    f["booked_pct"] = round(100 * f["booked"] / f["total_leads"], 2)
+    f["booked_pct"] = round(100 * f["booked"] / f["total_leads"], 1)
 
     f["w_attempts"] = round(100 * f["unique_attempts"] / f["total_leads"], 1)
     f["w_connected"] = round(100 * f["connected"] / f["total_leads"], 1)
@@ -122,11 +122,10 @@ def compute_funnel(df):
     f["w_interested"] = round(100 * f["interested"] / f["total_leads"], 1)
     f["w_booked"] = round(100 * f["booked"] / f["total_leads"], 1)
 
-    f["arrow1"] = round(f["attempts_pct"])
-    f["arrow2"] = round(f["connect_pct"])
-    f["arrow3"] = round(f["mc_pct"])
-    f["arrow4"] = round(f["interest_pct"])
-    f["arrow5"] = round(100 * f["booked"] / f["interested"]) if f["interested"] else 0
+    f["arrow2"] = f["connect_pct"]
+    f["arrow3"] = f["mc_pct"]
+    f["arrow4"] = f["interest_pct"]
+    f["arrow5"] = round(100 * f["booked"] / f["interested"], 1) if f["interested"] else 0.0
 
     # Follow-up summary: mirrors DAILY SUMMARY rows 4-7, which track the SECOND
     # calling round (columns AF:AS), not a simple filter of the first round.
@@ -164,8 +163,10 @@ def compute_intent(df):
         rows.append(dict(name=INTENT_DISPLAY_NAME.get(label, label), total=int(total), booked=int(booked), color=color))
 
     max_total = max(r["total"] for r in rows) or 1
+    grand_total = sum(r["total"] for r in rows) or 1
     for r in rows:
         r["width"] = round(100 * r["total"] / max_total, 1)
+        r["pct"] = round(100 * r["total"] / grand_total, 1)
     rows.sort(key=lambda r: -r["total"])
     return rows
 
@@ -176,10 +177,6 @@ def compute_decision_days(df):
 
     buckets = [
         ("Interested · date known", "interested - not yet (date known)", True),
-        ("Not interested · lost", "not interested - lost", False),
-        ("Ready to book now", "ready to book now", False),
-        ("Undecided", "undecided", False),
-        ("Interested · date unknown", "interested - not yet (date unknown)", False),
     ]
     out = []
     for label, key, pill in buckets:
@@ -217,7 +214,7 @@ def compute_reasons(wb, meaningful_connect):
     ranked = sorted([dict(r) for r in rows if r["label"].lower() != "others"], key=lambda r: -r["count"])
     top5 = ranked[:5]
     for r in top5:
-        r["pct"] = round(100 * r["count"] / meaningful_connect, 2)
+        r["pct"] = round(100 * r["count"] / meaningful_connect, 1)
     max_pct = top5[0]["pct"] if top5 else 1
     for r in top5:
         r["width"] = round(100 * r["pct"] / max_pct, 1)
@@ -231,7 +228,7 @@ def compute_reasons(wb, meaningful_connect):
         members.sort(key=lambda r: -r["count"])
         total = sum(r["count"] for r in members)
         for r in members:
-            r["pct"] = round(100 * r["count"] / grand_total, 2) if grand_total else 0.0
+            r["pct"] = round(100 * r["count"] / grand_total, 1) if grand_total else 0.0
         groups.append(dict(
             name=BREAKDOWN_DISPLAY_NAME.get(bucket_name, bucket_name),
             color=color,
