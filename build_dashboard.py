@@ -197,6 +197,32 @@ def compute_decision_days(df):
     return out
 
 
+def compute_outcome_median(df):
+    A = norm(col(df, "A")).str.lower()
+    Z = pd.to_numeric(col(df, "Z"), errors="coerce")
+
+    def fmt(x):
+        x = round(x, 1)
+        return int(x) if x % 1 == 0 else x
+
+    buckets = ["Wouldn't", "Not Yet"]
+    out = []
+    for label in buckets:
+        mask = A == label.lower()
+        vals = Z[mask].dropna()
+        if len(vals) == 0:
+            out.append(dict(label=label, median="N/A", avg="N/A", p90="N/A", p95="N/A"))
+        else:
+            out.append(dict(
+                label=label,
+                median=fmt(vals.median()),
+                avg=fmt(vals.mean()),
+                p90=fmt(vals.quantile(0.9)),
+                p95=fmt(vals.quantile(0.95)),
+            ))
+    return out
+
+
 def compute_reasons(wb, meaningful_connect):
     ws = wb[DAILY_SUMMARY]
     rows = []
@@ -247,6 +273,7 @@ def build(xlsx_path, output_path):
     f, fu = compute_funnel(df)
     intent_categories = compute_intent(df)
     decision_buckets = compute_decision_days(df)
+    outcome_median = compute_outcome_median(df)
     top5, top5_sum, breakdown_groups, grand_total = compute_reasons(wb, f["meaningful_connect"])
     voc_groups = classify_voc(df, col)
 
@@ -258,6 +285,7 @@ def build(xlsx_path, output_path):
         fu=fu,
         intent_categories=intent_categories,
         decision_buckets=decision_buckets,
+        outcome_median=outcome_median,
         top5=top5,
         top5_sum=top5_sum,
         breakdown_groups=breakdown_groups,

@@ -429,6 +429,37 @@
         </table>
       </div>
     </div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="card-pad" style="padding-bottom:0;">
+        <div class="card-title">Outcome median</div>
+        <div class="card-desc">Same decision-day timing, split by outcome bifurcation instead of interest bucket.</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Bifurcation</th>
+              <th class="num">Median days</th>
+              <th class="num">Avg days</th>
+              <th class="num">P90</th>
+              <th class="num">P95</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for o in outcome_median %}
+            <tr>
+              <td>{{ o.label }}</td>
+              <td class="num">{{ o.median }}</td>
+              <td class="num">{{ o.avg }}</td>
+              <td class="num">{{ o.p90 }}</td>
+              <td class="num">{{ o.p95 }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </section>
 
   <section id="breakdown">
